@@ -1,4 +1,17 @@
-# 
+# Development
+
+Clone repo
+
+```https://github.com/DiodonHystrix/prettier_eex_formatter.git```
+
+Run tests
+
+```mix test```
+
+Or build escript
+
+```MIX_ENV=prod mix escript.build```
+
 # Packaging
 
 Bump the changelog
