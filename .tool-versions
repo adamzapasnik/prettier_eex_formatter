@@ -1,0 +1,9 @@
+# This file contains the recommended versions for developing and running prettier_eex_formatter.
+# Using asdf to manage your elixir and OTP versions is not required, you can
+# use the system-installed version instead.
+#
+# The versions selected here are the versions that are used to build a binary
+# release for distribution
+
+elixir 1.10.3-otp-22
+erlang 22.3.4.1
