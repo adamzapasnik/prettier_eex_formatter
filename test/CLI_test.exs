@@ -79,46 +79,42 @@ defmodule PrettierEexFormatter.CLITest do
     assert_format bad,
                   [
                     """
-                    link
-                      "óww",
-                      "ew",
-                      Routes.some_looooooooooooooooooonger_path(@conn, :create),
-                      "Ewe",
-                      fn ef, fe ->
+                    link "óww",
+                         "ew",
+                         Routes.some_looooooooooooooooooonger_path(@conn, :create),
+                         "Ewe",
+                         fn ef, fe ->
                     """,
                     """
-                    link
-                      "óww",
-                      "ew",
-                      Routes.some_looooooooooooooooooonger_path(@conn, :create),
-                      "Ewe",
-                      fn ->
+                    link "óww",
+                         "ew",
+                         Routes.some_looooooooooooooooooonger_path(@conn, :create),
+                         "Ewe",
+                         fn ->
                     """
                   ]
 
     assert_format bad,
                   [
                     """
-                    link
-                      "óww",
-                      "ew",
-                      Routes.some_looooooooooooooooooonger_path(
-                        @conn,
-                        :create
-                      ),
-                      "Ewe",
-                      fn ef, fe ->
+                    link "óww",
+                         "ew",
+                         Routes.some_looooooooooooooooooonger_path(
+                           @conn,
+                           :create
+                         ),
+                         "Ewe",
+                         fn ef, fe ->
                     """,
                     """
-                    link
-                      "óww",
-                      "ew",
-                      Routes.some_looooooooooooooooooonger_path(
-                        @conn,
-                        :create
-                      ),
-                      "Ewe",
-                      fn ->
+                    link "óww",
+                         "ew",
+                         Routes.some_looooooooooooooooooonger_path(
+                           @conn,
+                           :create
+                         ),
+                         "Ewe",
+                         fn ->
                     """
                   ],
                   line_length: 40
