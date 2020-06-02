@@ -4,6 +4,7 @@
 #
 # The versions selected here are the versions that are used to build a binary
 # release for distribution
+# Remember to update .github/workflows/ci.yml versions to match these
 
 elixir 1.10.3-otp-22
 erlang 22.3.4.1
