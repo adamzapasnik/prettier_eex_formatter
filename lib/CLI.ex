@@ -79,18 +79,22 @@ defmodule PrettierEexFormatter.CLI do
     |> run_formatter(formatter_opts)
     |> String.trim()
     |> remove_added_code()
+    |> String.split("\n")
+    |> Enum.slice(0..-3)
     |> Enum.join("\n")
   end
 
   defp remove_added_code(code) do
     if String.ends_with?(code, ")") do
-      String.replace(code, "(", "", global: false)
-      |> String.split("\n")
-      |> Enum.slice(0..-4)
+      fn_name_length = String.split(code, "(") |> Enum.at(0) |> String.length()
+      extra_space = String.duplicate(" ", fn_name_length + 1)
+
+      code
+      |> String.replace("(\n ", "", global: false)
+      |> String.replace("\n  ", "\n" <> extra_space)
+      |> String.replace_trailing("\n)", "")
     else
       code
-      |> String.split("\n")
-      |> Enum.slice(0..-3)
     end
   end
 
