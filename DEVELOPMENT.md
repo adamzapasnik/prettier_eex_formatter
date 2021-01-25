@@ -2,7 +2,7 @@
 
 Clone repo
 
-```https://github.com/DiodonHystrix/prettier_eex_formatter.git```
+```https://github.com/adamzapasnik/prettier_eex_formatter.git```
 Run tests
 ```mix test```
 Or build escript
