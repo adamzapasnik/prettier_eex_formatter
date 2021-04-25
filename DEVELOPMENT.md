@@ -1,10 +1,27 @@
+## Version Support Guidelines
+
+Elixir itself supports 5 versions with security updates:
+https://hexdocs.pm/elixir/compatibility-and-deprecations.html#content
+
+OTP Supports the last 3 versions:
+http://erlang.2086793.n4.nabble.com/OTP-Versions-and-Maint-Branches-td4722416.html
+
+We generally aim to support the last 3 versions of Elixir and the last 3 versions of OTP.
+However this is not a hard and fast rule and may change in the future.
+
+*(Copied from https://github.com/elixir-lsp/elixir-ls/blob/master/DEVELOPMENT.md)*
+
+**We trust ElixirLS team's experience on that matter.**
+
 ## Development
 
 Clone repo
 
 ```https://github.com/adamzapasnik/prettier_eex_formatter.git```
+
 Run tests
 ```mix test```
+
 Or build escript
 ```MIX_ENV=prod mix escript.build```
 
@@ -16,7 +33,7 @@ Or build escript
 - Merge PR
 - Make the tag from the new master
 - Push the tag
-- Build escript
+- Build escript (run `bin/release`)
 
 ```sh
   rm -rf _build

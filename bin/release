@@ -1,0 +1,5 @@
+rm -rf _build
+rm prettier_eex_formatter prettier_eex_formatter.zip prettier_eex_formatter.tar.gz
+MIX_ENV=prod mix escript.build
+zip prettier_eex_formatter.zip prettier_eex_formatter
+tar -zcvf prettier_eex_formatter.tar.gz prettier_eex_formatter

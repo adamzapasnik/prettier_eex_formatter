@@ -6,5 +6,5 @@
 # release for distribution
 # Remember to update .github/workflows/ci.yml versions to match these
 
-elixir 1.11.2-otp-23
-erlang 23.2.2
+elixir 1.8.2-otp-21
+erlang 21.3.8.22
