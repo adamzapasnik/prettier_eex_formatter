@@ -2,7 +2,7 @@
 
 All notable changes to the prettier_eex_formatter extension will be documented in this file.
 
-## Unreleased
+## v0.2.0 - 25 April 2021
 
 ### Changes
 
