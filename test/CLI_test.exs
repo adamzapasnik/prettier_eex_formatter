@@ -189,6 +189,10 @@ defmodule PrettierEexFormatter.CLITest do
                   no_parens: "link"
   end
 
+  test "incorrect elixir" do
+    assert_format " This fails ", " This fails "
+  end
+
   test "no args exits with status 1" do
     assert "Formatter was called without any arguments.\n" ==
              capture_io(:stderr, fn ->

@@ -99,8 +99,12 @@ defmodule PrettierEexFormatter.CLI do
   end
 
   defp run_formatter(code, opts) do
-    code
-    |> Code.format_string!(opts)
-    |> IO.iodata_to_binary()
+    try do
+      code
+      |> Code.format_string!(opts)
+      |> IO.iodata_to_binary()
+    rescue
+      SyntaxError -> code
+    end
   end
 end
