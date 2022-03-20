@@ -10,7 +10,6 @@ defmodule PrettierEexFormatter.CLI do
 
     args
     |> Enum.map(&Base.decode64!/1)
-    |> Enum.map(&String.trim/1)
     |> Enum.map(&format(&1, formatter_opts))
     |> Enum.map(&Base.encode64/1)
     |> Enum.join("\n")
@@ -104,7 +103,36 @@ defmodule PrettierEexFormatter.CLI do
       |> Code.format_string!(opts)
       |> IO.iodata_to_binary()
     rescue
-      SyntaxError -> code
+      SyntaxError -> format_syntax_error_multiline(code)
     end
+  end
+
+  defp format_syntax_error_multiline(code) do
+    # check if multiline
+    # IO.inspect(code)
+    multilines = String.split(code, ~r/\R/)
+    spaces = multilines |> Enum.filter(fn string ->
+      String.trim(string)
+      |> String.length()
+      |> Kernel.>(0)
+    end)
+    |> Enum.map(fn string ->
+      [spaces] = Regex.run(~r/^(\s*)/, string, capture: :first)
+      String.length(spaces)
+    end)
+    # remove first if no newline
+    min = Enum.min(spaces)
+    # IO.inspect(min)
+    sp = String.duplicate(" ", min)
+    if min > 0 do
+      Enum.map(multilines, fn string ->
+        String.replace(string, ~r/^#{sp}/, "")# |> IO.inspect()
+      end)
+    else
+      multilines
+    end
+    |> Enum.join("\n")
+    |> String.trim_trailing()
+    # |> IO.inspect()
   end
 end

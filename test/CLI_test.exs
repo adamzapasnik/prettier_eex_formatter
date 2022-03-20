@@ -189,8 +189,64 @@ defmodule PrettierEexFormatter.CLITest do
                   no_parens: "link"
   end
 
-  test "incorrect elixir" do
-    assert_format " This fails ", " This fails "
+  test "syntax error" do
+    # assert_format " This fails ", " This fails "
+    # add ones that start without new lines
+    assert_format(
+      """
+      This is a comment
+
+
+        hey
+          hey
+        hey
+      """,
+      """
+      This is a comment
+
+
+        hey
+          hey
+        hey
+      """
+    )
+    assert_format(
+      """
+        This is a comment
+
+
+          hey
+            hey
+          hey
+      """,
+      """
+      This is a comment
+
+
+        hey
+          hey
+        hey
+      """
+    )
+    assert_format(
+      """
+          This is a comment
+
+
+          hey
+            hey
+          hey
+      """,
+      """
+      This is a comment
+
+
+      hey
+        hey
+      hey
+      """
+    )
+
   end
 
   test "no args exits with status 1" do
