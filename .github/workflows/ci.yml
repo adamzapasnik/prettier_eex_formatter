@@ -18,8 +18,8 @@ jobs:
       - name: Install OTP and Elixir
         uses: erlef/setup-beam@v1
         with:
-          otp-version: "21.3.8.22"
-          elixir-version: "1.8.2"
+          otp-version: "22.3.4.26"
+          elixir-version: "1.10.4"
 
       - run: mix compile --warnings-as-errors
       - run: mix format --check-formatted
@@ -34,8 +34,8 @@ jobs:
       - name: Install OTP and Elixir
         uses: erlef/setup-beam@v1
         with:
-          otp-version: "21.3.8.22"
-          elixir-version: "1.8.2"
+          otp-version: "22.3.4.26"
+          elixir-version: "1.10.4"
 
       - name: Compile
         run: MIX_ENV=test mix compile
