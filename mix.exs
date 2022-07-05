@@ -4,8 +4,8 @@ defmodule PrettierEexFormatter.MixProject do
   def project do
     [
       app: :prettier_eex_formatter,
-      version: "0.2.0",
-      elixir: "~> 1.8",
+      version: "0.3.0",
+      elixir: "~> 1.10",
       escript: [main_module: PrettierEexFormatter.CLI]
     ]
   end
